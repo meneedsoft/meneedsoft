@@ -1,0 +1,499 @@
+/* ==============================================
+            CONFIGURACIONES GENERALES
+=============================================== */
+@font-face {
+    font-family: "MavenPro-Regular";
+    src: url("../fonts/MavenPro-Regular.ttf");
+}
+
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    --primary-color: #262339;
+    --secondary-color: #0c607b;
+}
+
+body {
+    font-family: 'Open Sans', serif;
+    color: #868e96;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Saira Extra Condensed', serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary-color);
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.button-outline {
+    border: 2px solid var(--primary-color);
+    padding: .5em 1em;
+    border-radius: 2em;
+    color: #343a40;
+    transition: all .5s;
+    font-weight: bold;
+}
+
+.button-outline:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+}
+
+hr{
+    border-color: #fff;
+}
+
+select{
+    margin: 0;
+}
+
+/* ==============================================
+                     HEADER
+=============================================== */
+header{
+    box-sizing: border-box;
+    border-bottom: .25em solid var(--secondary-color);
+}
+
+
+header .container{
+    position: relative;
+    width: 100%;
+    height: 80px;
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'MavenPro-Regular', serif;
+    font-weight: bold;
+    
+}
+
+header a,
+header a .logo{
+    position: relative;
+    height: 100%;
+}
+
+header nav ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin-bottom: 0;
+}
+
+header nav ul li:not(:last-child){
+    margin-right: 1em;
+}
+
+header nav ul li div{
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: all .5s ease;
+}
+
+header nav ul li:hover div,
+header nav ul li:hover a{
+    width: 100%;
+    color: var(--primary-color);
+}
+
+/* ==============================================
+                      SLIDE
+=============================================== */
+
+.slide {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 250px);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(1fr);
+}
+
+.item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity .5s;
+    display: flex;
+}
+
+.info-slideshow,
+.image-slideshow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: all .5s;
+}
+
+.image-slideshow .item-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-top: -50px;   
+}
+
+.info-slideshow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+    margin-top: -50px;
+}
+
+.info-slideshow .content-info{
+    width: 570px;
+}
+
+.item-description h5{
+    color: var(--secondary-color);
+}
+
+.item.active {
+    opacity: 1;
+    z-index: 9999;
+}
+
+.item.active .info-slideshow,
+.item.active .item-image {
+    margin-top: 0;
+}
+
+.controls {
+    position: absolute;
+    bottom: 1em;
+    z-index: 100000;
+}
+.controls ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.controls ul li {
+    display: inline-block;
+    margin-right: .5em;
+    cursor: pointer;
+    font-family: 'MavenPro-Regular', serif;
+    font-size: .75em;
+    text-align: center;
+    color: var(--secondary-color);
+    transition: all .5s;
+}
+
+.controls ul li.active {
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    line-height: 2em;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1em;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    padding: 0 .25em;
+}
+
+/* ==============================================
+                      DATOS
+=============================================== */
+.datos-container{
+    width: 100%;
+    height: 166px;
+    background-color: var(--secondary-color);
+}
+
+.datos{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0;
+}
+
+.datos .item-datos{
+    position: relative;
+    padding: 1em;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.datos .item-datos .icon{
+    font-size: 2em;
+    margin-bottom: .5em;
+}
+
+.datos .item-datos h3, 
+.datos .item-datos p{
+    color: #fff;
+    margin: 0;
+}
+
+.datos .item-datos:not(:first-child):after{
+    content: "";
+    border-left: 1px solid #0e495d;
+    border-right: 1px solid #1c728e;
+    position: absolute;
+    top: 10%;
+    left: 0;
+    height: 80%;
+}
+
+/* ==============================================
+                      SECTIÓN
+=============================================== */
+.title-section{
+    margin: 1em 0 .25em 0;
+    text-align: center;
+}
+
+.title-section.text-white{
+    color: #fff;
+}
+
+.line-title{
+    margin: 0 auto 2em auto;
+    width: 5em;
+    height: 5px;
+    background-color: var(--primary-color);
+}
+
+.line-title-small{
+    margin: 0 auto;
+    width: 3em;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.line-title.bg-white,
+.line-title-small.bg-white{
+    background-color: #fff;
+}
+
+.section, 
+.section-img,
+.section-servicios,
+.section-contacto{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    color: #666;
+}
+
+.section-left{
+    grid-template-columns: 60% 40%;
+}
+
+.section-right{
+    grid-template-columns: 40% 60%;
+}
+
+.section-servicios{
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2em;
+}
+
+.section-contacto{
+    grid-template-columns: 40% 60%;
+    grid-gap: 2em;
+    color: #fff;
+}
+
+.text-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.section-servicios .card-servicios{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    border: 2px solid gainsboro;
+}
+
+.section-servicios .card-servicios:hover{
+    border: 2px solid var(--secondary-color);
+}
+
+.card-servicios .img-card{
+    font-size: 3em;
+    margin-bottom: 16px;
+    color: var(--primary-color);
+}
+
+.list-valores{
+    list-style: none;
+    padding-left: 1em;
+}
+
+.list-valores li{
+    margin-bottom: .5em;
+}
+
+.list-valores .icon-valores{
+    font-size: 1.5em;
+    color: var(--secondary-color);
+}
+
+
+/* ==============================================
+                    CONTACTO
+=============================================== */
+
+
+.background-contacto{
+    background-image: url(../img/background_contacto.jpg);
+    background-size: cover;
+    padding: 2em;
+}
+
+.info-item{
+    display: flex;
+    margin-bottom: 2em;
+}
+
+.info-item .icon-info{
+    width: 50px;
+    height: 50px;
+    margin-right: .5em;
+    font-size: 3em;
+    text-align: center;
+}
+
+.redes-sociales i{
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    line-height: 1.5em;
+    text-align: center;
+    font-size: 1.5em;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.redes-sociales i.facebook:hover{
+    background: #4267b2;
+}
+.redes-sociales i.instagram:hover{
+    background: linear-gradient(120deg,#575dc4, #ee4949);
+}
+.redes-sociales i.whatsapp:hover{
+    background: #59c358;
+}
+
+.form-contacto{
+    text-align: center;
+}
+
+.form-contacto form .group-content{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 1em;
+}
+
+.formcontent {
+    position: relative;
+    flex-grow: 1;
+    margin: 0 1em 1em 0;
+    z-index: 0;
+    transition: 3s;
+}
+
+.formcontent input,
+.formcontent select,
+.formcontent textarea{
+    width: 100% !important;
+    padding: .5em;
+    background-color: transparent !important;
+    border: 2px solid #fff;
+    outline: none;
+    transition: all .5s;
+    color: #fff;
+    resize: none;
+}
+
+.formcontent select option{
+    background-color: var(--secondary-color);
+    background: var(--secondary-color);
+}
+
+.formcontent label {
+    position: absolute;
+    top: .5em;
+    left: .5em;
+    color: #fff;
+    z-index: -1;
+    transition: .5s;
+}
+
+.formcontent input:focus ~ label,
+.formcontent textarea:focus ~ label, 
+.formcontent.active label{
+    top: -2em;
+    left: .5em;
+    font-size: 12px;
+    transition: .3s;
+    background-color: var(--white-color);
+    z-index: 1;
+    padding: 0 .25em;
+}
+
+.form-contacto .btn-contacto{
+    position: relative;
+    border: none;
+    border: 2px solid #fff;
+    background-color: transparent !important;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: .5em 2em;
+    transition: .5s all ease;
+}
+
+.form-contacto .btn-contacto:hover{
+    background-color: #fff !important;
+    color: var(--primary-color);
+}
+
+/* ==============================================
+                    FOOTER
+=============================================== */
+
+footer{
+    color: #fff;
+    text-align: right;
+}
