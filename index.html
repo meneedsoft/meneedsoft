@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Desarrollo de aplicaciones web, aplicaciones moviles y soporte técnico en Santiago de Cali y Popayán"/>
     <meta name="keywords" content="meneedsoft, desarrollo, web, soporte, servicio, sistemas, información, movil, técnico, cali, popayan"/>
-    <meta name=”robots” content="Index, Follow">
+    <meta name="robots" content="Index, Follow">
     <meta name="copyright" content="Meneedsoft"/>
-    <meta name=”author” content="Daniel Eduardo Hoyos Silva">
+    <meta name="author" content="Daniel Eduardo Hoyos Silva">
 
     <meta property="og:site_name" content="Meneedsoft | Soluciones Tecnológicas">
     <meta property="og:type" content="website">
@@ -40,12 +40,19 @@
 </head>
 
 <body>
-    <header>
-        <div class="container">
+    <header class="header">
+        <div class="contenedor">
             <a href="http://www.meneedsoft.com">
                 <img class="logo" src="./img/Logo meneedsoft.png" alt="Meneedsoft" />
             </a>
-            <nav>
+
+            <!-- Menú Smarphones -->
+            <button type="button" class="btn-menu" data-menu-state='off'>
+                <span class="btn-icon"></span>
+            </button>
+
+            <!-- Menú -->
+            <nav class="menu">
                 <ul>
                     <li>
                         <a href="http://www.meneedsoft.com">Inicio</a>
@@ -60,7 +67,7 @@
                         <div class="line"></div>
                     </li>
                     <li>
-                        <a href="#contacto">Contacto</a>
+                        <a href="#contacto">Contáctanos</a>
                         <div class="line"></div>
                     </li>
                     <li>
@@ -226,7 +233,7 @@
     </div>
 
     <section>
-        <div class="container" id="nosotros">
+        <div class="contenedor" id="nosotros">
             <h2 class="title-section" >¿Quienes Somos?</h2>
             <div class="line-title"></div>
         
@@ -274,7 +281,7 @@
             </div>
         </div>
         
-         <div class="container" id="servicios">
+         <div class="contenedor" id="servicios">
             <h2 class="title-section">Servicios</h2>
             <div class="line-title"></div>
         
@@ -393,7 +400,7 @@
     </section>
 
     <section class="background-contacto">
-        <div class="container" id="contacto">
+        <div class="contenedor" id="contacto">
             <h2 class="title-section text-white">Contáctanos</h2>
             <div class="line-title bg-white"></div>
 

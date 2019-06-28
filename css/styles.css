@@ -6,11 +6,16 @@
     src: url("../fonts/MavenPro-Regular.ttf");
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
-:root{
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+:root {
     --primary-color: #262339;
     --secondary-color: #0c607b;
 }
@@ -59,64 +64,141 @@ a:active {
     text-decoration: none;
 }
 
-hr{
+hr {
     border-color: #fff;
 }
 
-select{
+select {
     margin: 0;
 }
 
 /* ==============================================
                      HEADER
 =============================================== */
-header{
-    box-sizing: border-box;
+.header {
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    z-index: 9999999;
     border-bottom: .25em solid var(--secondary-color);
+    box-sizing: border-box;
 }
 
-
-header .container{
+.header .contenedor {
     position: relative;
     width: 100%;
     height: 80px;
-    padding: 1em 0;
+    padding: 1em;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: 'MavenPro-Regular', serif;
     font-weight: bold;
-    
 }
 
-header a,
-header a .logo{
+.header a,
+.header a .logo {
     position: relative;
-    height: 100%;
+    width: 200px;
+    height: 40px;
 }
 
-header nav ul{
+/* Navbar Button */
+.header .btn-menu {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: transparent;
     display: flex;
-    flex-direction: row;
-    list-style: none;
-    margin-bottom: 0;
+    flex-direction: column;
+    justify-content: flex-end;
+    outline: none;
 }
 
-header nav ul li:not(:last-child){
-    margin-right: 1em;
-}
-
-header nav ul li div{
-    width: 0;
+.header .btn-menu .btn-icon {
+    position: relative;
+    width: 25px;
     height: 2px;
-    background-color: var(--primary-color);
-    transition: all .5s ease;
+    margin: 0;
+    padding: 0;
+    background: var(--secondary-color);
+    transition: .5s all ease-out;
+    border-radius: 5px;
 }
 
-header nav ul li:hover div,
-header nav ul li:hover a{
+.header .btn-menu .btn-icon:before,
+.header .btn-menu .btn-icon:after {
+    content: " ";
+    position: absolute;
+    height: 2px;
+    left: 0;
+    border-radius: 5px;
+    background: var(--secondary-color);
+    transition: .5s all ease-in;
+}
+
+.header .btn-menu .btn-icon:before {
+    width: 10px;
+    bottom: 20px;
+}
+
+.header .btn-menu .btn-icon:after {
+    width: 18px;
+    bottom: 10px;
+}
+
+.header .btn-menu:hover .btn-icon,
+.header .btn-menu:hover .btn-icon:before,
+.header .btn-menu:hover .btn-icon:after {
+    width: 25px;
+    background: var(--primary-color);
+}
+/* Fin Navbar Button */
+
+header .menu {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    top: 80px;
+    right: -250px;
+    background-color: var(--secondary-color);
+    z-index: 999999;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    transition: .5s all ease;
+}
+
+header .menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 1em;
+}
+
+header .menu ul li {
+    position: relative;
+    text-align: center;
+    padding: .5em 0;
+}
+
+header .menu ul li:not(:first-child)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    color: var(--primary-color);
+    border-top: 1px solid #0e495d;
+    border-bottom: 1px solid #1c728e;
+}
+
+header .menu ul li a {
+    color: #fff;
+}
+
+header .menu ul li .button-outline {
+    display: block;
+    margin: 1em auto !important;
+    border-color: #fff;
 }
 
 /* ==============================================
@@ -156,7 +238,7 @@ header nav ul li:hover a{
     position: relative;
     width: 100%;
     height: 100%;
-    margin-top: -50px;   
+    margin-top: -50px;
 }
 
 .info-slideshow {
@@ -168,11 +250,11 @@ header nav ul li:hover a{
     margin-top: -50px;
 }
 
-.info-slideshow .content-info{
+.info-slideshow .content-info {
     width: 570px;
 }
 
-.item-description h5{
+.item-description h5 {
     color: var(--secondary-color);
 }
 
@@ -191,6 +273,7 @@ header nav ul li:hover a{
     bottom: 1em;
     z-index: 100000;
 }
+
 .controls ul {
     list-style: none;
     padding: 0;
@@ -224,21 +307,20 @@ header nav ul li:hover a{
 /* ==============================================
                       DATOS
 =============================================== */
-.datos-container{
+.datos-container {
     width: 100%;
-    height: 166px;
     background-color: var(--secondary-color);
 }
 
-.datos{
+.datos {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     padding: 0;
 }
 
-.datos .item-datos{
+.datos .item-datos {
     position: relative;
     padding: 1em;
     color: #fff;
@@ -248,18 +330,18 @@ header nav ul li:hover a{
     align-items: center;
 }
 
-.datos .item-datos .icon{
+.datos .item-datos .icon {
     font-size: 2em;
     margin-bottom: .5em;
 }
 
-.datos .item-datos h3, 
-.datos .item-datos p{
+.datos .item-datos h3,
+.datos .item-datos p {
     color: #fff;
     margin: 0;
 }
 
-.datos .item-datos:not(:first-child):after{
+.datos .item-datos:not(:first-child):after {
     content: "";
     border-left: 1px solid #0e495d;
     border-right: 1px solid #1c728e;
@@ -272,23 +354,23 @@ header nav ul li:hover a{
 /* ==============================================
                       SECTIÓN
 =============================================== */
-.title-section{
+.title-section {
     margin: 1em 0 .25em 0;
     text-align: center;
 }
 
-.title-section.text-white{
+.title-section.text-white {
     color: #fff;
 }
 
-.line-title{
+.line-title {
     margin: 0 auto 2em auto;
     width: 5em;
     height: 5px;
     background-color: var(--primary-color);
 }
 
-.line-title-small{
+.line-title-small {
     margin: 0 auto;
     width: 3em;
     height: 3px;
@@ -296,74 +378,80 @@ header nav ul li:hover a{
 }
 
 .line-title.bg-white,
-.line-title-small.bg-white{
+.line-title-small.bg-white {
     background-color: #fff;
 }
 
-.section, 
+.section,
 .section-img,
 .section-servicios,
-.section-contacto{
+.section-contacto {
     position: relative;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     color: #666;
 }
 
-.section-left{
+.section-img .img-section img{
+    width: 100%;
+}
+
+.section-left {
     grid-template-columns: 60% 40%;
 }
 
-.section-right{
+.section-right {
     grid-template-columns: 40% 60%;
 }
 
-.section-servicios{
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2em;
+.section-servicios {
+    grid-template-columns: 1fr;
+    grid-gap: 0em;
+    padding: 1em;
 }
 
-.section-contacto{
+.section-contacto {
     grid-template-columns: 40% 60%;
     grid-gap: 2em;
     color: #fff;
 }
 
-.text-section{
+.text-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.section-servicios .card-servicios{
+.section-servicios .card-servicios {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding: 1em;
     border: 2px solid gainsboro;
+    margin-bottom: 1em;
 }
 
-.section-servicios .card-servicios:hover{
+.section-servicios .card-servicios:hover {
     border: 2px solid var(--secondary-color);
 }
 
-.card-servicios .img-card{
+.card-servicios .img-card {
     font-size: 3em;
     margin-bottom: 16px;
     color: var(--primary-color);
 }
 
-.list-valores{
+.list-valores {
     list-style: none;
     padding-left: 1em;
 }
 
-.list-valores li{
+.list-valores li {
     margin-bottom: .5em;
 }
 
-.list-valores .icon-valores{
+.list-valores .icon-valores {
     font-size: 1.5em;
     color: var(--secondary-color);
 }
@@ -374,18 +462,18 @@ header nav ul li:hover a{
 =============================================== */
 
 
-.background-contacto{
+.background-contacto {
     background-image: url(../img/background_contacto.jpg);
     background-size: cover;
     padding: 2em;
 }
 
-.info-item{
+.info-item {
     display: flex;
     margin-bottom: 2em;
 }
 
-.info-item .icon-info{
+.info-item .icon-info {
     width: 50px;
     height: 50px;
     margin-right: .5em;
@@ -393,7 +481,7 @@ header nav ul li:hover a{
     text-align: center;
 }
 
-.redes-sociales i{
+.redes-sociales i {
     width: 1.5em;
     height: 1.5em;
     border-radius: 50%;
@@ -404,21 +492,23 @@ header nav ul li:hover a{
     color: #fff;
 }
 
-.redes-sociales i.facebook:hover{
+.redes-sociales i.facebook:hover {
     background: #4267b2;
 }
-.redes-sociales i.instagram:hover{
-    background: linear-gradient(120deg,#575dc4, #ee4949);
+
+.redes-sociales i.instagram:hover {
+    background: linear-gradient(120deg, #575dc4, #ee4949);
 }
-.redes-sociales i.whatsapp:hover{
+
+.redes-sociales i.whatsapp:hover {
     background: #59c358;
 }
 
-.form-contacto{
+.form-contacto {
     text-align: center;
 }
 
-.form-contacto form .group-content{
+.form-contacto form .group-content {
     position: relative;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -435,7 +525,7 @@ header nav ul li:hover a{
 
 .formcontent input,
 .formcontent select,
-.formcontent textarea{
+.formcontent textarea {
     width: 100% !important;
     padding: .5em;
     background-color: transparent !important;
@@ -446,7 +536,7 @@ header nav ul li:hover a{
     resize: none;
 }
 
-.formcontent select option{
+.formcontent select option {
     background-color: var(--secondary-color);
     background: var(--secondary-color);
 }
@@ -460,9 +550,9 @@ header nav ul li:hover a{
     transition: .5s;
 }
 
-.formcontent input:focus ~ label,
-.formcontent textarea:focus ~ label, 
-.formcontent.active label{
+.formcontent input:focus~label,
+.formcontent textarea:focus~label,
+.formcontent.active label {
     top: -2em;
     left: .5em;
     font-size: 12px;
@@ -472,7 +562,7 @@ header nav ul li:hover a{
     padding: 0 .25em;
 }
 
-.form-contacto .btn-contacto{
+.form-contacto .btn-contacto {
     position: relative;
     border: none;
     border: 2px solid #fff;
@@ -484,7 +574,7 @@ header nav ul li:hover a{
     transition: .5s all ease;
 }
 
-.form-contacto .btn-contacto:hover{
+.form-contacto .btn-contacto:hover {
     background-color: #fff !important;
     color: var(--primary-color);
 }
@@ -493,7 +583,96 @@ header nav ul li:hover a{
                     FOOTER
 =============================================== */
 
-footer{
+footer {
     color: #fff;
     text-align: right;
+}
+
+/* ==============================================
+                  MEDIA QUERIES
+=============================================== */
+
+@media only screen and (min-width: 768px) {
+    .header .btn-menu {
+        display: none;
+    }
+
+    .header .menu {
+        position: relative;
+        width: auto;
+        height: auto;
+        top: 0;
+        right: 0;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .header .menu ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        list-style: none;
+        margin-bottom: 0;
+        padding: 0;
+    }
+
+    .header .menu ul li .button-outline {
+        display: block;
+        margin: 0 !important;
+        width: auto;
+        height: 100%;
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+    }
+
+    .header .menu ul li .button-outline:hover {
+        color: #fff;
+    }
+
+    header nav ul li:not(:last-child) {
+        margin-right: 1em;
+    }
+
+    header .menu ul li:not(:first-child)::after {
+        content: "";
+        border-top: 0;
+        border-bottom: 0;
+    }
+
+    header .menu ul li a {
+        color: var(--secondary-color);
+    }
+
+    header nav ul li div {
+        width: 0;
+        height: 2px;
+        background-color: var(--primary-color);
+        transition: all .5s ease;
+    }
+
+    header nav ul li:hover div,
+    header nav ul li:hover a {
+        width: 100%;
+        color: var(--primary-color);
+    }
+
+
+
+    .section-servicios {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2em;
+        width: 100% !important;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    header .container {
+        padding: 1em 0;
+    }
+
+    header a,
+    header a .logo {
+        position: relative;
+        height: 100%;
+    }
 }
