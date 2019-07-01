@@ -80,7 +80,7 @@ select {
     width: 100%;
     background-color: #fff;
     z-index: 9999999;
-    border-bottom: .25em solid var(--secondary-color);
+    border-bottom: 5px solid var(--secondary-color);
     box-sizing: border-box;
 }
 
@@ -208,7 +208,7 @@ header .menu ul li .button-outline {
 .slide {
     position: relative;
     width: 100%;
-    height: calc(100vh - 250px);
+    height: calc(100vh - 385px);
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
@@ -251,11 +251,20 @@ header .menu ul li .button-outline {
 }
 
 .info-slideshow .content-info {
-    width: 570px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-header h1{
+    font-size: 1em !important;
+    padding-left: 1em;
 }
 
 .item-description h5 {
     color: var(--secondary-color);
+    display: none;
 }
 
 .item.active {
@@ -270,6 +279,7 @@ header .menu ul li .button-outline {
 
 .controls {
     position: absolute;
+    display: none;
     bottom: 1em;
     z-index: 100000;
 }
@@ -322,6 +332,7 @@ header .menu ul li .button-outline {
 
 .datos .item-datos {
     position: relative;
+    height: 150px;
     padding: 1em;
     color: #fff;
     display: flex;
@@ -339,6 +350,7 @@ header .menu ul li .button-outline {
 .datos .item-datos p {
     color: #fff;
     margin: 0;
+    text-align: center;
 }
 
 .datos .item-datos:not(:first-child):after {
@@ -466,6 +478,7 @@ header .menu ul li .button-outline {
     background-image: url(../img/background_contacto.jpg);
     background-size: cover;
     padding: 2em;
+    overflow: hidden;
 }
 
 .info-item {
