@@ -157,7 +157,7 @@ select {
 }
 /* Fin Navbar Button */
 
-header .menu {
+.header .menu {
     position: fixed;
     width: 250px;
     height: 100%;
@@ -169,19 +169,19 @@ header .menu {
     transition: .5s all ease;
 }
 
-header .menu ul {
+.header .menu ul {
     list-style: none;
     margin: 0;
     padding: 1em;
 }
 
-header .menu ul li {
+.header .menu ul li {
     position: relative;
     text-align: center;
     padding: .5em 0;
 }
 
-header .menu ul li:not(:first-child)::after {
+.header .menu ul li:not(:first-child)::after {
     content: "";
     position: absolute;
     top: 0;
@@ -191,11 +191,11 @@ header .menu ul li:not(:first-child)::after {
     border-bottom: 1px solid #1c728e;
 }
 
-header .menu ul li a {
+.header .menu ul li a {
     color: #fff;
 }
 
-header .menu ul li .button-outline {
+.header .menu ul li .button-outline {
     display: block;
     margin: 1em auto !important;
     border-color: #fff;
@@ -279,6 +279,7 @@ header .menu ul li .button-outline {
 
 .controls {
     position: absolute;
+    left: 1em;
     display: none;
     bottom: 1em;
     z-index: 100000;
@@ -315,7 +316,7 @@ header .menu ul li .button-outline {
 }
 
 /* ==============================================
-                      DATOS
+                DATOS SERVICIOS
 =============================================== */
 .datos-container {
     width: 100%;
@@ -353,7 +354,7 @@ header .menu ul li .button-outline {
     text-align: center;
 }
 
-.datos .item-datos:not(:first-child):after {
+.datos .item-datos:nth-child(2n):after {
     content: "";
     border-left: 1px solid #0e495d;
     border-right: 1px solid #1c728e;
@@ -362,7 +363,6 @@ header .menu ul li .button-outline {
     left: 0;
     height: 80%;
 }
-
 /* ==============================================
                       SECTIÓN
 =============================================== */
@@ -601,11 +601,16 @@ footer {
     text-align: right;
 }
 
+
+
 /* ==============================================
                   MEDIA QUERIES
 =============================================== */
 
 @media only screen and (min-width: 768px) {
+    /* ==============
+         HEADER
+    ================*/
     .header .btn-menu {
         display: none;
     }
@@ -642,34 +647,75 @@ footer {
         color: #fff;
     }
 
-    header nav ul li:not(:last-child) {
+    .header nav ul li:not(:last-child) {
         margin-right: 1em;
     }
 
-    header .menu ul li:not(:first-child)::after {
+    .header .menu ul li:not(:first-child)::after {
         content: "";
         border-top: 0;
         border-bottom: 0;
     }
 
-    header .menu ul li a {
+    .header .menu ul li a {
         color: var(--secondary-color);
     }
 
-    header nav ul li div {
+    .header nav ul li div {
         width: 0;
         height: 2px;
         background-color: var(--primary-color);
         transition: all .5s ease;
     }
 
-    header nav ul li:hover div,
-    header nav ul li:hover a {
+    .header nav ul li:hover div,
+    .header nav ul li:hover a {
         width: 100%;
         color: var(--primary-color);
     }
 
+    /* ======================
+                SLIDE
+    ==========================*/
+    .slide{
+        height: calc(100vh - 235px);
+    }
 
+    .info-slideshow .content-info {
+        width: 100%;
+        display: block;
+        padding-left: 1em;
+    }
+
+    .item-header h1{
+        font-size: 2em !important;
+        padding: 0;
+    }
+
+    .item-description h5 {
+        display: contents;
+    }
+
+    .controls {
+        display: block;
+    }
+
+    /* ==============================================
+                    DATOS SERVICIOS
+    =============================================== */
+    .datos{
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .datos .item-datos:not(:first-child):after {
+        content: "";
+        border-left: 1px solid #0e495d;
+        border-right: 1px solid #1c728e;
+        position: absolute;
+        top: 10%;
+        left: 0;
+        height: 80%;
+    }
 
     .section-servicios {
         grid-template-columns: repeat(3, 1fr);
@@ -678,7 +724,10 @@ footer {
     }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1200px) {
+    /* ======================
+              HEADER
+    ==========================*/
     header .container {
         padding: 1em 0;
     }
@@ -687,5 +736,17 @@ footer {
     header a .logo {
         position: relative;
         height: 100%;
+    }
+
+    /* ======================
+              SLIDE
+    ==========================*/
+    .info-slideshow .content-info {
+        width: 580px;
+        padding: 0;
+    }
+
+    .controls {
+        left: auto;
     }
 }
