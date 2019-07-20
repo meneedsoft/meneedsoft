@@ -1,5 +1,5 @@
-const items = document.querySelectorAll('.item');
-const controls = document.querySelectorAll('.control');
+const items     = document.querySelectorAll('.item');
+const controls  = document.querySelectorAll('.control');
 let item_actual = 0;
 
 const slider = {

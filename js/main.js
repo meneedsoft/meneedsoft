@@ -66,25 +66,10 @@ function saveContactForm(data) {
 /* Fin Integración Firebase */
 
 /* Nav */
-const header    = document.querySelector('.header');
 const btnMenu   = document.querySelector('.btn-menu');
 const menu      = document.querySelector('.menu');
 
 btnMenu.addEventListener('click', function() {
-    if(this.dataset.menuState == 'off'){
-        menu.style.right = 0;
-        this.dataset.menuState = 'on';
-    }else{
-        menu.style.right = "-250px";
-        this.dataset.menuState = 'off';
-    }
-});
-
-window.addEventListener('scroll', function(){
-    if(window.pageYOffset > 0){
-        header.style.position = 'fixed';
-    }else{
-        header.style.position = 'relative';
-    }
+    menu.classList.toggle('open');
 });
 /* Fin Nav */
